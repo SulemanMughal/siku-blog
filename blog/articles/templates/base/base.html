@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    {% include "base/meta.html" %}
+
+    <!-- CSS files -->
+    {% include "base/style.html" %}
+
+    {% block extra_style %}
+    {% endblock extra_style %}
+    
+
+    <title>{% block title %}Cyber News{% endblock %}</title>
+  </head>
+  <body>
+
+    <!-- Header files -->
+    {% include "base/header.html" %}
+
+    <!-- Main Content -->
+    {%  block content %}
+    {% endblock content %}
+
+    <!-- JS files -->
+    {% include "base/script.html" %}
+
+    {% block extra_script %}
+    {% endblock extra_script %}
+
+
+  </body>
+</html>

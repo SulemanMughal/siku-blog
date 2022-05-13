@@ -1,0 +1,13 @@
+{% if posts.has_other_pages %}
+  <nav aria-label="Page navigation " >
+  <ul class="pagination justify-content-end my-3">
+    {% if posts.has_previous %}
+    <li><a href="?{% if query %}query={{ query }}&{% endif %}page={{ posts.previous_page_number }}" class="page-link  fs-4 px-3"><i class="fas fa-angle-left fa-1x"></i> Prev Page </a></li>
+    {% endif %}
+    {% if posts.has_next %}
+    <li><a href="?{% if query %}query={{ query }}&{% endif %}page={{ posts.next_page_number }}" class="page-link fs-4 px-3"> Next Page <i class="fas fa-angle-right fa-1x "></i></a></li>
+   {% endif %}
+  </ul>
+  </nav>
+</div>
+{% endif %}

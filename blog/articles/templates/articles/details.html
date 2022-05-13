@@ -1,0 +1,42 @@
+{% extends "base/base.html" %}
+{% load thumbnail %}
+{% block title  %}{{ post.title }}{% endblock %}
+
+
+{% block extra_style %}
+<style>
+    img:not(.card-img-top){
+        width: 50% !important;
+        display: block !important;
+        height: auto !important;
+        text-align: center !important;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+</style>
+{% endblock extra_style %}
+
+{% block  content %}
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="card bg-transparent border-0 rounded-0" >
+                    <div class="card-header border-0 bg-transparent px-0">
+                        <h1 class="card-title fw-bolder pb-3">{{ post.title }}</h1>
+                    </div>
+                    {% thumbnail post.banner "x450" crop="center"  as im %}
+                        <img src="{{ im.url }}" class="card-img-top border-0 rounded-0 p-0 m-0 " alt="{{ im.title }}" width="{{ im.width }}" height="{{ im.height }}">
+                    {% endthumbnail %}
+                    
+                    <div class="card-body px-0">
+                        
+                        <p class="card-text">{{ post.content|safe }}</p>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
